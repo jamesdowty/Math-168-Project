@@ -3,7 +3,7 @@ from import_test import *
 import matplotlib.pyplot as plt
 import numpy as np
 
-metrolink = transitSystem("../Amtrak GTFS")
+metrolink = TransitSystem("../NYC GTFS")
 
 G = nx.Graph()
 positions = {}
@@ -25,13 +25,15 @@ for trip in metrolink.trips:
         G.add_edge(metrolink.trips[trip].sequence[i-1].stop_id, metrolink.trips[trip].sequence[i].stop_id, weight=travel_time)
 edge_weights = nx.get_edge_attributes(G, 'weight')
 
-average_shortest_path = 0
 component_count = 0
+total_time = 0
+total_pairs=0
 
 for C in (G.subgraph(c).copy() for c in nx.connected_components(G)):
-    average_shortest_path += nx.average_shortest_path_length(C, weight='weight')
+    total_time += nx.average_shortest_path_length(C, weight='weight')*C.number_of_nodes()*(C.number_of_nodes()-1)
     component_count += 1
-average_shortest_path = average_shortest_path/component_count
+    total_pairs += C.number_of_nodes()*(C.number_of_nodes()-1)
+average_shortest_path = total_time/total_pairs
 
 print(average_shortest_path)
 print(component_count)
