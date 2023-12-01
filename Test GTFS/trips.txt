@@ -1,0 +1,5 @@
+"route_id","service_id","trip_id"
+"Route A","1","1"
+"Route A","1","2"
+"Route B","2","3"
+"Route B","2","4"

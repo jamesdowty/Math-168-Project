@@ -100,3 +100,12 @@ class TransitSystem:
 
         for trip in self.trips:
             self.trips[trip].sequence.sort(key=lambda x: x.stop_sequence)
+
+
+def to_minutes(time_string):
+    minutes = 0
+    separate = time_string.split(':')
+    minutes += int(separate[0]) * 60
+    minutes += int(separate[1])
+    minutes += int(separate[2]) / 60
+    return minutes

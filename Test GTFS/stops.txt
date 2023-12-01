@@ -1,0 +1,5 @@
+"stop_id","stop_name","stop_lat","stop_lon"
+"1","First Stop","1","-1"
+"2","Second Stop","2","-2"
+"3","Third Stop","3","-3"
+"4","Fourth Stop","4","-4"
