@@ -5,6 +5,7 @@ import numpy as np
 
 metrolink = TransitSystem("../Metrolink GTFS")
 
+
 # Directed Graph that takes schedule into account
 S = nx.DiGraph()  # Graph that takes schedule into account
 begin_nodes = []  # Begin with these nodes when doing graph traversal. Format is *stop_id*_begin
